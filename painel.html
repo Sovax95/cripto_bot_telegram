@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>CryptoBot Promoter 🚀</title>
+</head>
+<body style="font-family: sans-serif; text-align: center; margin-top: 50px;">
+  <h1>CryptoBot Promoter</h1>
+  <textarea id="msg" placeholder="Digite sua mensagem..." rows="5" cols="50"></textarea><br><br>
+  <button onclick="enviar()">Enviar para o Telegram</button>
+
+  <script>
+    async function enviar() {
+      const mensagem = document.getElementById("msg").value;
+      await fetch("/send_message", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: mensagem })
+      });
+      alert("Mensagem enviada!");
+    }
+  </script>
+</body>
+</html>
